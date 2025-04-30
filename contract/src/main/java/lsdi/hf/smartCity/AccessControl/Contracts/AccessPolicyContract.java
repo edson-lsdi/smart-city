@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Contract(
-    name = "attribute",
+    name = "policy",
     info = @Info(
-        title = "attribute",
-        description = "store attributes for intercity security",
+        title = "Access policy",
+        description = "store policies for intercity security",
         version = "0.0.1-SNAPSHOT",
         contact = @Contact(
-            email = "edson.sampaio@lsdi.ufma.br",
-            name = "Edson Carlos"
+            email = "lucas.oliveira@lsdi.ufma.br",
+            name = "Lucas Oliveira"
     )))
 public class AccessPolicyContract implements ContractInterface {
     private final static String ASSET_TYPE = "AcessPolicy_";
