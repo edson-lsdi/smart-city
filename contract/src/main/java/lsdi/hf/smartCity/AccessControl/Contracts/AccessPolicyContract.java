@@ -59,7 +59,7 @@ public class AccessPolicyContract implements ContractInterface {
     }
 
     @Transaction(intent = Transaction.TYPE.EVALUATE)
-    public String listPolicys(final Context ctx) {
+    public String listPolicies(final Context ctx) {
         List<AccessPolicyAsset> queryResults = new ArrayList<>();
 
         QueryResultsIterator<KeyValue> results = ctx.getStub().getStateByRange("", "");
@@ -74,7 +74,7 @@ public class AccessPolicyContract implements ContractInterface {
     }
 
     @Transaction(intent = Transaction.TYPE.EVALUATE)
-    public String listPolicysByEntityManager(final Context ctx,final String entityManagerID) {
+    public String listPoliciesByEntityManager(final Context ctx,final String entityManagerID) {
         String queryString = String.format("{\"selector\":{\"entityManagerID\":\"%s\"}}", entityManagerID);
 
         QueryResultsIterator<KeyValue> results = ctx.getStub().getQueryResult(queryString);
@@ -92,7 +92,7 @@ public class AccessPolicyContract implements ContractInterface {
     }
 
     @Transaction(intent = Transaction.TYPE.EVALUATE)
-    public String listPolicysByPublicAgent(final Context ctx,final String publicAgentID) {
+    public String listPoliciesByPublicAgent(final Context ctx,final String publicAgentID) {
         String queryString = String.format("{\"selector\":{\"publicAgentID\":\"%s\"}}", publicAgentID);
 
         QueryResultsIterator<KeyValue> results = ctx.getStub().getQueryResult(queryString);
@@ -110,7 +110,7 @@ public class AccessPolicyContract implements ContractInterface {
     }
 
     @Transaction(intent = Transaction.TYPE.SUBMIT)
-    public void EditPolicy(final Context ctx, final String policyJSON) {
+    public void editPolicy(final Context ctx, final String policyJSON) {
         AccessPolicyAsset policyAsset = genson.deserialize(policyJSON, AccessPolicyAsset.class);
         String policyKey = ASSET_TYPE + policyAsset.getPolicyID();
 
